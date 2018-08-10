@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComprasTable extends Migration
+class CreateHistorialcomprasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,18 @@ class CreateComprasTable extends Migration
      */
     public function up()
     {
-        Schema::create('compras', function (Blueprint $table) {
+        Schema::create('historialcompras', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('descripcion',150);
-            $table->integer('monto');
+            $table->integer('compra_id');
             $table->date('fechaCompra');
             $table->time('horaCompra');
+            $table->integer('tipoCompra');
+            $table->integer('metodoDePago');
+            $table->integer('monto');
+            $table->string('descripcion',200);
             $table->timestamps();
 
-            /* llaves foraneas*/
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-
+            $table->foreign('compra_id')->references('id')->on('compras')->onDelete('cascade');
         });
     }
 
@@ -37,6 +35,6 @@ class CreateComprasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compras');
+        Schema::dropIfExists('historialcompras');
     }
 }

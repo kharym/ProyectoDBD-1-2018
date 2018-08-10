@@ -30,7 +30,9 @@ class CreateVuelosTable extends Migration
             $table->timestamps();
 
             $table->foreign('compra_id')->references('id')->on('compras')->onDelete('cascade');
-            /*$table->foreign('aerolinea_id')->references('id')->on('aerolineas')->onDelete('cascade');*/
+            $table->foreign('aerolinea_id')->references('id')->on('aerolineas')->onDelete('cascade');
+            $table->foreign('aeropuertoOrigen_id')->references('id')->on('aeropuertos')->onDelete('cascade');
+            $table->foreign('aeropuertoDestino_id')->references('id')->on('aeropuertos')->onDelete('cascade');
         });
     }
 

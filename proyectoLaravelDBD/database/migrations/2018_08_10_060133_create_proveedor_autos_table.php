@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHistorialusuariosTable extends Migration
+class CreateProveedorAutosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateHistorialusuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('historialusuarios', function (Blueprint $table) {
+        Schema::create('proveedor_autos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion',150);
-            $table->date('fechaHistorial');
-            $table->time('horaHistorial');
+            $table->string('nombreProveedorAuto',50);
+            $table->string('telefono',15);
+            $table->string('correo',30);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateHistorialusuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('historialusuarios');
+        Schema::dropIfExists('proveedor_autos');
     }
 }

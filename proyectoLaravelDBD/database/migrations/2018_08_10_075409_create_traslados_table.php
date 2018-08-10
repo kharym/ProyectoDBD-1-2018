@@ -16,7 +16,7 @@ class CreateTrasladosTable extends Migration
         Schema::create('traslados', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('compra_id');
-            $table->integer('proveedorTraslado_id');
+            $table->integer('proveedor_traslado_id');
             $table->integer('precioTraslado');
             $table->string('planificacionParadas',200);
             $table->integer('numeroParadas');
@@ -26,6 +26,7 @@ class CreateTrasladosTable extends Migration
             $table->timestamps();
 
             $table->foreign('compra_id')->references('id')->on('compras')->onDelete('cascade');
+            $table->foreign('proveedor_traslado_id')->references('id')->on('proveedor_traslados')->onDelete('cascade');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlojamientosTable extends Migration
+class CreateHistorialusersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateAlojamientosTable extends Migration
      */
     public function up()
     {
-        Schema::create('alojamientos', function (Blueprint $table) {
+        Schema::create('historialusers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombreAlojamiento',20);
-            $table->integer('calificacion');
+            $table->string('descripcion',150);
+            $table->date('fechaHistorial');
+            $table->time('horaHistorial');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateAlojamientosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alojamientos');
+        Schema::dropIfExists('historialusers');
     }
 }
