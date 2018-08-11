@@ -15,13 +15,15 @@ class CreateAeropuertosTable extends Migration
     {
         Schema::create('aeropuertos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('ubicacione_id');
+            $table->string('latitud_id');
+            $table->string('longitud_id');
             $table->string('nombreAeropuerto',50);
             $table->integer('tipoAeropuerto');
             $table->integer('calificacion');
             $table->timestamps();
 
-            $table->foreign('ubicacione_id')->references('id')->on('ubicaciones')->onDelete('cascade');
+            $table->foreign('latitud_id')->references('latitud')->on('ubicaciones')->onDelete('cascade');
+            $table->foreign('longitud_id')->references('longitud')->on('ubicaciones')->onDelete('cascade');
         });
     }
 
