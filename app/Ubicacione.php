@@ -7,28 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 class Ubicacione extends Model
 {
     // relacion 1-1 con aeropuerto... aeropuerto tiene las llaves de ubicaciones en el MER
-    public function aeropuerto(){
+    public function aeropuertoLat(){
     	return $this->hasOne(Aeropuerto::class,'latitud_id');
 	}
 
-	public function aeropuerto(){
+	public function aeropuertoLong(){
     	return $this->hasOne(Aeropuerto::class,'longitud_id');
 	}
 	// relacion 1-1 con alojamientos... alojamientos tiene las llaves de ubicaciones en el MER
-	public function alojamiento(){
+	public function alojamientoLat(){
     	return $this->hasOne(Alojamiento::class,'latitud_id');
 	}
 
-	public function alojamiento(){
+	public function alojamientoLong(){
     	return $this->hasOne(Alojamiento::class,'longitud_id');
 	}
 
 	// relacion 1-1 con traslados... traslados tiene las llaves de ubicaciones en el MER
-	public function traslado(){
+	public function trasladoLat(){
     	return $this->hasOne(Traslado::class,'latitud_id');
 	}
 
-	public function traslado(){
+	public function trasladoLong(){
     	return $this->hasOne(Traslado::class,'longitud_id');
 	}
 }

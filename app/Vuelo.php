@@ -12,11 +12,11 @@ class Vuelo extends Model
 	}
 
 	//relacion 1-1 aeropuerto... vuelos tiene las llaves de aeropuerto en el MER
-	public function aeropuerto(){
+	public function aeropuertoOrigen(){
     	return $this->belongsTo(Aeropuerto::class,'aeropuertoOrigen_id');
 	}
 
-	public function aeropuerto(){
+	public function aeropuertoDestino(){
     	return $this->belongsTo(Aeropuerto::class,'aeropuertoDestino_id');
 	}
 
