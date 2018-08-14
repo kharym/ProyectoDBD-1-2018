@@ -15,9 +15,9 @@ class CreatePaquetesAlojamientosTable extends Migration
     {
         Schema::create('paquetes_alojamientos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('paquete_id');
+            $table->integer('paquete_id')->unsigned();
             $table->foreign('paquete_id')->references('id')->on('paquetes');
-            $table->integer('alojamiento_id');
+            $table->integer('alojamiento_id')->unsigned();
             $table->foreign('alojamiento_id')->references('id')->on('alojamientos');
             $table->timestamps();
         });

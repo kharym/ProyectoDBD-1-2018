@@ -15,8 +15,8 @@ class CreateAutosTable extends Migration
     {
         Schema::create('autos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('compra_id');
-            $table->integer('proveedor_auto_id');
+            $table->integer('compra_id')->unsigned();
+            $table->integer('proveedor_auto_id')->unsigned();
             $table->string('patente',10)->unique();
             $table->integer('precio');
             $table->string('marca',15);

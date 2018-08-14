@@ -36,7 +36,19 @@ class HistorialcompraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $historialcompra = new Historialcompra();
+        $historialcompra->compra_id= $request->compra_id;
+        $historialcompra->fechaCompra= $request->fechaCompra;
+        $historialcompra->horaCompra= $request->horaCompra;
+        $historialcompra->tipoCompra= $request->tipoCompra;
+        $historialcompra->metodoDePago= $request->metodoDePago;
+        $historialcompra->monto= $request->monto;
+        $historialcompra->descripcion= $request->descripcion;
+       
+        $historialcompra->save();
+
+        $todos = Historialcompra::all();
+        return $todos;
     }
 
     /**

@@ -36,7 +36,16 @@ class PaqueteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paquete = new Paquete();
+        $paquete->precioDescuento= $request->precioDescuento;
+        $paquete->tipoPaquete= $request->tipoPaquete;
+        $paquete->precioNormal= $request->precioNormal;
+        $paquete->descripcion= $request->descripcion;
+       
+        $paquete->save();
+
+        $todos = Paquete::all();
+        return $todos;
     }
 
     /**

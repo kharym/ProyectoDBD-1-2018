@@ -36,7 +36,21 @@ class TrasladoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $traslado = new Traslado();
+        $traslado->compra_id= $request->compra_id;
+        $traslado->proveedor_traslado_id= $request->proveedor_traslado_id;
+        $traslado->ubicacion_id= $request->ubicacion_id;
+        $traslado->precioTraslado= $request->precioTraslado;
+        $traslado->planificacionParadas= $request->planificacionParadas;
+        $traslado->numeroParadas= $request->numeroParadas;
+        $traslado->totalPasajeros= $request->totalPasajeros;
+        $traslado->fechaTraslado= $request->fechaTraslado;
+        $traslado->horaTraslado= $request->horaTraslado;
+       
+        $traslado->save();
+
+        $todos = Traslado::all();
+        return $todos;
     }
 
     /**

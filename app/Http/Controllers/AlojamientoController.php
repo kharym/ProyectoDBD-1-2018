@@ -37,8 +37,7 @@ class AlojamientoController extends Controller
     public function store(Request $request)
     {
         $alojamiento = new Alojamiento();
-        $alojamiento->latitud_id= $request->latitud_id;
-        $alojamiento->longitud_id= $request->longitud_id;
+        $alojamiento->ubicacion_id= $request->ubicacion_id;
         $alojamiento->nombreAlojamiento= $request->nombreAlojamiento;
         $alojamiento->calificacion= $request->calificacion;
        

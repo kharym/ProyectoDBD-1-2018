@@ -18,11 +18,8 @@ class Traslado extends Model
 
     // relacion 1-1 con ubicaciones... traslados tiene las llaves de ubicaciones en el MER
 
-	public function ubicacionLat(){
-    	return $this->belongsTo(Ubicacione::class,'latitud_id');
+	public function ubicacion(){
+    	return $this->belongsTo(Ubicacione::class,'ubicacion_id');
 	}
 
-	public function ubicacionLong(){
-    	return $this->belongsTo(Ubicacione::class,'longitud_id');
-	}
 }

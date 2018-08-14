@@ -15,10 +15,9 @@ class CreateTrasladosTable extends Migration
     {
         Schema::create('traslados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('compra_id');
-            $table->integer('proveedor_traslado_id');
-            $table->string('latitud_id');
-            $table->string('longitud_id');
+            $table->integer('compra_id')->unsigned();
+            $table->integer('proveedor_traslado_id')->unsigned();
+            $table->integer('ubicacion_id');
             $table->integer('precioTraslado');
             $table->string('planificacionParadas',200);
             $table->integer('numeroParadas');
@@ -29,8 +28,7 @@ class CreateTrasladosTable extends Migration
 
             $table->foreign('compra_id')->references('id')->on('compras')->onDelete('cascade');
             $table->foreign('proveedor_traslado_id')->references('id')->on('proveedor_traslados')->onDelete('cascade');
-            $table->foreign('latitud_id')->references('latitud')->on('ubicaciones')->onDelete('cascade');
-            $table->foreign('longitud_id')->references('longitud')->on('ubicaciones')->onDelete('cascade');
+            $table->foreign('ubicacion_id')->references('id')->on('ubicaciones')->onDelete('cascade');
         });
     }
 

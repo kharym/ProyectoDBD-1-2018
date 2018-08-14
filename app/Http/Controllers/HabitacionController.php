@@ -36,7 +36,23 @@ class HabitacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $habitacion = new Habitacione();
+        $habitacion->compra_id= $request->compra_id;
+        $habitacion->alojamiento_id= $request->alojamiento_id;
+        $habitacion->precioHabitacion= $request->precioHabitacion;
+        $habitacion->calificacion= $request->calificacion;
+        $habitacion->numeroAdultos= $request->numeroAdultos;
+        $habitacion->numeroNinos= $request->numeroNinos;
+        $habitacion->tipoHabitacion= $request->tipoHabitacion;
+        $habitacion->fechaIngreso= $request->fechaIngreso;
+        $habitacion->horaIngreso= $request->horaIngreso;
+        $habitacion->fechaSalida= $request->fechaSalida;
+        $habitacion->horaSalida= $request->horaSalida;
+       
+        $habitacion->save();
+
+        $todos = Habitacione::all();
+        return $todos;
     }
 
     /**

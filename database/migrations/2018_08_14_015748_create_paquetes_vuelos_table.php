@@ -15,9 +15,9 @@ class CreatePaquetesVuelosTable extends Migration
     {
         Schema::create('paquetes_vuelos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('paquete_id');
+            $table->integer('paquete_id')->unsigned();
             $table->foreign('paquete_id')->references('id')->on('paquetes');
-            $table->integer('vuelo_id');
+            $table->integer('vuelo_id')->unsigned();
             $table->foreign('vuelo_id')->references('id')->on('vuelos');
             $table->timestamps();
         });

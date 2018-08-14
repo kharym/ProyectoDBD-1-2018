@@ -18,11 +18,7 @@ class Aeropuerto extends Model
 
 	// relacion 1-1 con ubicaciones... aeropuerto tiene las llaves de ubicaciones en el MER
 
-	public function ubicacioneLat(){
-    	return $this->belongsTo(Ubicacione::class,'latitud_id');
-	}
-
-	public function ubicacioneLong(){
-    	return $this->belongsTo(Ubicacione::class,'longitud_id');
+	public function ubicacione(){
+    	return $this->belongsTo(Ubicacione::class,'ubicacion_id');
 	}
 }

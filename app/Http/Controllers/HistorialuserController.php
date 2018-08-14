@@ -36,7 +36,15 @@ class HistorialuserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $historialuser = new Historialuser();
+        $historialuser->descripcion= $request->descripcion;
+        $historialuser->fechaHistorial= $request->fechaHistorial;
+        $historialuser->horaHistorial= $request->horaHistorial;
+       
+        $historialuser->save();
+
+        $todos = Historialuser::all();
+        return $todos;
     }
 
     /**

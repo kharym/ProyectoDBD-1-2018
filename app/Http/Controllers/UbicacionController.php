@@ -36,7 +36,19 @@ class UbicacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ubicacion = new Ubicacione();
+        $ubicacion->latitud= $request->latitud;
+        $ubicacion->longitud= $request->longitud;
+        $ubicacion->ciudad= $request->ciudad;
+        $ubicacion->pais= $request->pais;
+        $ubicacion->calleUbicacion= $request->calleUbicacion;
+        $ubicacion->numeroUbicacion= $request->numeroUbicacion;
+        $ubicacion->codigoPostal= $request->codigoPostal;
+       
+        $ubicacion->save();
+
+        $todos = Ubicacione::all();
+        return $todos;
     }
 
     /**

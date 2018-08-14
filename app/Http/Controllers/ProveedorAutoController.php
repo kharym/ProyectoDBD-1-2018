@@ -36,7 +36,15 @@ class ProveedorAutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $proveedorAuto = new ProveedorAuto();
+        $proveedorAuto->nombreProveedorAuto= $request->nombreProveedorAuto;
+        $proveedorAuto->telefono= $request->telefono;
+        $proveedorAuto->correo= $request->correo;
+       
+        $proveedorAuto->save();
+
+        $todos = ProveedorAuto::all();
+        return $todos;
     }
 
     /**

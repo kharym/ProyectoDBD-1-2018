@@ -36,7 +36,24 @@ class VueloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vuelo = new Vuelo();
+        $vuelo->compra_id= $request->compra_id;
+        $vuelo->aerolinea_id= $request->aerolinea_id;
+        $vuelo->aeropuertoOrigen_id= $request->aeropuertoOrigen_id;
+        $vuelo->aeropuertoDestino_id= $request->aeropuertoDestino_id;
+        $vuelo->tipoVuelo= $request->tipoVuelo;
+        $vuelo->precioVuelo= $request->precioVuelo;
+        $vuelo->numeroEscala= $request->numeroEscala;
+        $vuelo->cantidadEquipaje= $request->cantidadEquipaje;
+        $vuelo->fechaPartida= $request->fechaPartida;
+        $vuelo->horaPartida= $request->horaPartida;
+        $vuelo->fechaRegreso= $request->fechaRegreso;
+        $vuelo->horaRegreso= $request->horaRegreso;
+       
+        $vuelo->save();
+
+        $todos = Vuelo::all();
+        return $todos;
     }
 
     /**

@@ -30,7 +30,7 @@ class User extends Authenticatable
     //relacion 1-n con compras... compras tiene la llave de users en el MER
 
     public function compras(){
-        return $this->hasMany(Compra::class,'email');
+        return $this->hasMany(Compra::class,'user_id');
     }
 
     //relacion 1-n con historialusers... users tiene la llave de historialusers en el MER

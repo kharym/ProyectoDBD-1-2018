@@ -26,7 +26,7 @@ class Compra extends Model
 
     //relacion 1-n con user... compras tiene la llave de users en el MER
     public function user(){
-    	return $this->belongsTo(User::class,'email');
+    	return $this->belongsTo(User::class,'user_id');
 	}
 
     //relacion 1-n con historialcompras... historialcompras tiene la llave de compras en el MER

@@ -99,7 +99,7 @@ CREATE TABLE users(
 
 CREATE TABLE compras(
 	id int NOT NULL AUTO INCREMENT,
-	user int NOT NULL,
+	user_id int NOT NULL,
 	descripcion varchar(150) NOT NULL,
 	monto int NOT NULL,
 	fechaCompra date NOT NULL,
@@ -167,7 +167,7 @@ CREATE TABLE historialCompras(
 
 CREATE TABLE alojamientos(
 	id int NOT NULL AUTO INCREMENT,
-	ubicacione_id int NOT NULL,
+	ubicacion_id int NOT NULL,
 	nombreAlojamiento varchar(20),
 	calificacion int, 
 	PRIMARY KEY (id)
@@ -200,6 +200,7 @@ CREATE TABLE habitaciones(
 CREATE TABLE traslados(
 	id int NOT NULL AUTO INCREMENT,
 	compra_id int NOT NULL,
+	ubicacion_id int NOT NULL,
 	preoveedor_traslado_id int NOT NULL,
 	precioTraslado int NOT NULL,
 	planificacionParadas varchar(200) NOT NULL,

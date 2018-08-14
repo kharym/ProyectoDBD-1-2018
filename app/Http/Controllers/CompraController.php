@@ -36,7 +36,17 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $compra = new Compra();
+        $compra->user_id= $request->user_id;
+        $compra->descripcion= $request->descripcion;
+        $compra->monto= $request->monto;
+        $compra->fechaCompra= $request->fechaCompra;
+        $compra->horaCompra= $request->horaCompra;
+       
+        $compra->save();
+
+        $todos = Compra::all();
+        return $todos;
     }
 
     /**

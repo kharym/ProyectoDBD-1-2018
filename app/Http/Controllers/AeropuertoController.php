@@ -37,8 +37,7 @@ class AeropuertoController extends Controller
     public function store(Request $request)
     {
         $aeropuerto = new Aeropuerto();
-        $aeropuerto->latitud_id= $request->latitud_id;
-        $aeropuerto->longitud_id= $request->longitud_id;
+        $aeropuerto->ubicacion_id= $request->ubicacion_id;
         $aeropuerto->nombreAeropuerto= $request->nombreAeropuerto;
         $aeropuerto->tipoAeropuerto= $request->tipoAeropuerto;
         $aeropuerto->calificacion= $request->calificacion;

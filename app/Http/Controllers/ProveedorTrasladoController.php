@@ -36,7 +36,15 @@ class ProveedorTrasladoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $proveedorTraslado = new ProveedorTraslado();
+        $proveedorTraslado->nombreProveedorTraslado= $request->nombreProveedorTraslado;
+        $proveedorTraslado->telefono= $request->telefono;
+        $proveedorTraslado->correo= $request->correo;
+       
+        $proveedorTraslado->save();
+
+        $todos = ProveedorTraslado::all();
+        return $todos;
     }
 
     /**
