@@ -15,9 +15,9 @@ class CreatePaquetesAutosTable extends Migration
     {
         Schema::create('paquetes_autos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('paquete_id');
+            $table->integer('paquete_id')->unsigned();
             $table->foreign('paquete_id')->references('id')->on('paquetes');
-            $table->integer('auto_id');
+            $table->integer('auto_id')->unsigned();
             $table->foreign('auto_id')->references('id')->on('autos');
             $table->timestamps();
         });

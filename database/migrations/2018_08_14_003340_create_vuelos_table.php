@@ -15,10 +15,10 @@ class CreateVuelosTable extends Migration
     {
         Schema::create('vuelos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('compra_id');
-            $table->integer('aerolinea_id');
-            $table->integer('aeropuertoOrigen_id');
-            $table->integer('aeropuertoDestino_id');
+            $table->integer('compra_id')->unsigned();
+            $table->integer('aerolinea_id')->unsigned();
+            $table->integer('aeropuertoOrigen_id')->unsigned();
+            $table->integer('aeropuertoDestino_id')->unsigned();
             $table->integer('tipoVuelo');
             $table->integer('precioVuelo');
             $table->integer('numeroEscala');

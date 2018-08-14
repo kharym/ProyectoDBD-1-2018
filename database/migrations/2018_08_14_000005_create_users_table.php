@@ -13,9 +13,10 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('historialuser_id');
+            $table->integer('historialuser_id')->unsigned();
             $table->string('name',30);
             $table->string('email',50)->unique();
             $table->string('password',10);

@@ -15,8 +15,8 @@ class CreateTrasladosTable extends Migration
     {
         Schema::create('traslados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('compra_id');
-            $table->integer('proveedor_traslado_id');
+            $table->integer('compra_id')->unsigned();
+            $table->integer('proveedor_traslado_id')->unsigned();
             $table->string('latitud_id');
             $table->string('longitud_id');
             $table->integer('precioTraslado');

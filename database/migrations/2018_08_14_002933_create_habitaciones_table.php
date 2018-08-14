@@ -15,8 +15,8 @@ class CreateHabitacionesTable extends Migration
     {
         Schema::create('habitaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('compra_id');
-            $table->integer('alojamiento_id');
+            $table->integer('compra_id')->unsigned();
+            $table->integer('alojamiento_id')->unsigned();
             $table->integer('precioHabitacion');
             $table->integer('calificacion');
             $table->integer('numeroAdultos');

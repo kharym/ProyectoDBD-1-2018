@@ -15,7 +15,7 @@ class CreateHistorialcomprasTable extends Migration
     {
         Schema::create('historialcompras', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('compra_id');
+            $table->integer('compra_id')->unsigned();
             $table->date('fechaCompra');
             $table->time('horaCompra');
             $table->integer('tipoCompra');
