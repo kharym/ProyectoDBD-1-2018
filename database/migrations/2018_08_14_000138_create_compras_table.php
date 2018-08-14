@@ -15,14 +15,14 @@ class CreateComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->increments('id');
-              $table->integer('user_id');
+            $table->string('email');
             $table->string('descripcion',150);
             $table->integer('monto');
             $table->date('fechaCompra');
             $table->time('horaCompra');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
         });
     }
 

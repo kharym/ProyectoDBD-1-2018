@@ -23,8 +23,9 @@ class CreateUsersTable extends Migration
             $table->integer('fondos');
             $table->integer('rol');
             $table->timestamps();
-
+            
             $table->foreign('historialuser_id')->references('id')->on('historialusers')->onDelete('cascade');
+            
         });
     }
 

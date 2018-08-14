@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //relacion 1-n con compras... compras tiene la llave de users en el MER
+
+    public function compras(){
+        return $this->hasMany(Compra::class,'email');
+    }
+
+    //relacion 1-n con historialusers... users tiene la llave de historialusers en el MER
+    public function historialuser(){
+        return $this->belongsTo(Historialuser::class,'historialuser_id');
+    }
 }

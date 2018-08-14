@@ -22,7 +22,7 @@ class CreateAlojamientosTable extends Migration
             $table->timestamps();
 
             $table->foreign('latitud_id')->references('latitud')->on('ubicaciones')->onDelete('cascade');
-             $table->foreign('longitud_id')->references('longitud')->on('ubicaciones')->onDelete('cascade');
+            $table->foreign('longitud_id')->references('longitud')->on('ubicaciones')->onDelete('cascade');
         });
     }
 
