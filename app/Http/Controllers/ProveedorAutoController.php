@@ -53,9 +53,10 @@ class ProveedorAutoController extends Controller
      * @param  \App\ProveedorAuto  $proveedorAuto
      * @return \Illuminate\Http\Response
      */
-    public function show(ProveedorAuto $proveedorAuto)
+    public function show($id)
     {
-        //
+        $proveedorAuto = ProveedorAuto::find($id);
+        return $proveedorAuto;
     }
 
     /**
@@ -64,9 +65,9 @@ class ProveedorAutoController extends Controller
      * @param  \App\ProveedorAuto  $proveedorAuto
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProveedorAuto $proveedorAuto)
+    public function edit($id)
     {
-        //
+        /
     }
 
     /**
@@ -76,9 +77,16 @@ class ProveedorAutoController extends Controller
      * @param  \App\ProveedorAuto  $proveedorAuto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProveedorAuto $proveedorAuto)
+    public function update(Request $request, $id)
     {
-        //
+        $proveedorAuto = ProveedorAuto::find($id);
+        $proveedorAuto->nombreProveedorAuto= $request->nombreProveedorAuto;
+        $proveedorAuto->telefono= $request->telefono;
+        $proveedorAuto->correo= $request->correo;
+       
+        $proveedorAuto->save();
+
+        return $proveedorAuto;
     }
 
     /**
@@ -87,8 +95,11 @@ class ProveedorAutoController extends Controller
      * @param  \App\ProveedorAuto  $proveedorAuto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProveedorAuto $proveedorAuto)
+    public function destroy($id)
     {
-        //
+        $proveedorAuto = ProveedorAuto::find($id);
+        $proveedorAuto->delete();
+
+        return ProveedorAuto:: all();
     }
 }

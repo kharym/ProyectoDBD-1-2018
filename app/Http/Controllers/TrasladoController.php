@@ -59,9 +59,10 @@ class TrasladoController extends Controller
      * @param  \App\Traslado  $traslado
      * @return \Illuminate\Http\Response
      */
-    public function show(Traslado $traslado)
+    public function show($id)
     {
-        //
+        $traslado = Traslado::find($id);
+        return $traslado;
     }
 
     /**
@@ -70,7 +71,7 @@ class TrasladoController extends Controller
      * @param  \App\Traslado  $traslado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Traslado $traslado)
+    public function edit($id)
     {
         //
     }
@@ -82,9 +83,22 @@ class TrasladoController extends Controller
      * @param  \App\Traslado  $traslado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Traslado $traslado)
+    public function update(Request $request, $id)
     {
-        //
+        $traslado = Traslado::find($id);
+        $traslado->compra_id= $request->compra_id;
+        $traslado->proveedor_traslado_id= $request->proveedor_traslado_id;
+        $traslado->ubicacion_id= $request->ubicacion_id;
+        $traslado->precioTraslado= $request->precioTraslado;
+        $traslado->planificacionParadas= $request->planificacionParadas;
+        $traslado->numeroParadas= $request->numeroParadas;
+        $traslado->totalPasajeros= $request->totalPasajeros;
+        $traslado->fechaTraslado= $request->fechaTraslado;
+        $traslado->horaTraslado= $request->horaTraslado;
+       
+        $traslado->save();
+
+        return $traslado;
     }
 
     /**
@@ -93,8 +107,11 @@ class TrasladoController extends Controller
      * @param  \App\Traslado  $traslado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Traslado $traslado)
+    public function destroy($id)
     {
-        //
+        $traslado = Traslado::find($id);
+        $traslado->delete();
+
+        return Traslado:: all();
     }
 }

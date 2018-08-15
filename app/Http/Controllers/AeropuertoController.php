@@ -54,9 +54,10 @@ class AeropuertoController extends Controller
      * @param  \App\Aeropuerto  $aeropuerto
      * @return \Illuminate\Http\Response
      */
-    public function show(Aeropuerto $aeropuerto)
+    public function show($id)
     {
-        //
+        $aeropuerto = Aeropuerto::find($id);
+        return $aeropuerto;
     }
 
     /**
@@ -65,7 +66,7 @@ class AeropuertoController extends Controller
      * @param  \App\Aeropuerto  $aeropuerto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Aeropuerto $aeropuerto)
+    public function edit($id)
     {
         //
     }
@@ -77,9 +78,17 @@ class AeropuertoController extends Controller
      * @param  \App\Aeropuerto  $aeropuerto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Aeropuerto $aeropuerto)
+    public function update(Request $request, $id)
     {
-        //
+        $aeropuerto = Aeropuerto::find($id);
+        $aeropuerto->ubicacion_id= $request->ubicacion_id;
+        $aeropuerto->nombreAeropuerto= $request->nombreAeropuerto;
+        $aeropuerto->tipoAeropuerto= $request->tipoAeropuerto;
+        $aeropuerto->calificacion= $request->calificacion;
+       
+        $aeropuerto->save();
+
+        return $aeropuerto;
     }
 
     /**
@@ -88,8 +97,11 @@ class AeropuertoController extends Controller
      * @param  \App\Aeropuerto  $aeropuerto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aeropuerto $aeropuerto)
+    public function destroy($id)
     {
-        //
+        $aeropuerto = Aeropuerto::find($id);
+        $aeropuerto->delete();
+
+        return Aeropuerto:: all();
     }
 }

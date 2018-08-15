@@ -55,9 +55,10 @@ class CompraController extends Controller
      * @param  \App\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function show(Compra $compra)
+    public function show($id)
     {
-        //
+        $compra = Compra::find($id);
+        return $compra;
     }
 
     /**
@@ -66,7 +67,7 @@ class CompraController extends Controller
      * @param  \App\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function edit(Compra $compra)
+    public function edit($id)
     {
         //
     }
@@ -78,9 +79,18 @@ class CompraController extends Controller
      * @param  \App\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Compra $compra)
+    public function update(Request $request, $id)
     {
-        //
+        $compra = Compra::find($id);
+        $compra->user_id= $request->user_id;
+        $compra->descripcion= $request->descripcion;
+        $compra->monto= $request->monto;
+        $compra->fechaCompra= $request->fechaCompra;
+        $compra->horaCompra= $request->horaCompra;
+       
+        $compra->save();
+
+        return $compra;
     }
 
     /**
@@ -89,8 +99,11 @@ class CompraController extends Controller
      * @param  \App\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Compra $compra)
+    public function destroy($id)
     {
-        //
+        $compra = Compra::find($id);
+        $compra->delete();
+
+        return Compra:: all();
     }
 }

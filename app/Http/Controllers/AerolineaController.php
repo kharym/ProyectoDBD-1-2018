@@ -52,9 +52,10 @@ class AerolineaController extends Controller
      * @param  \App\Aerolinea  $aerolinea
      * @return \Illuminate\Http\Response
      */
-    public function show(Aerolinea $aerolinea)
+    public function show($id)
     {
-        //
+        $aerolinea = Aerolinea::find($id);
+        return $aerolinea;
     }
 
     /**
@@ -63,7 +64,7 @@ class AerolineaController extends Controller
      * @param  \App\Aerolinea  $aerolinea
      * @return \Illuminate\Http\Response
      */
-    public function edit(Aerolinea $aerolinea)
+    public function edit($id)
     {
         //
     }
@@ -75,9 +76,15 @@ class AerolineaController extends Controller
      * @param  \App\Aerolinea  $aerolinea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Aerolinea $aerolinea)
+    public function update(Request $request,$id)
     {
-        //
+        $aerolinea = Aerolinea::find($id);
+        $aerolinea->nombreAerolinea= $request->nombreAerolinea;
+        $aerolinea->tipoAerolinea= $request->tipoAerolinea;
+        $aerolinea->calificacion= $request->calificacion;
+        $aerolinea->save();
+
+        return $aerolinea;
     }
 
     /**
@@ -86,8 +93,11 @@ class AerolineaController extends Controller
      * @param  \App\Aerolinea  $aerolinea
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aerolinea $aerolinea)
+    public function destroy($id)
     {
-        //
+        $aerolinea = Aerolinea::find($id);
+        $aerolinea->delete();
+
+        return Aerolinea:: all();
     }
 }

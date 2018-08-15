@@ -53,9 +53,10 @@ class HistorialuserController extends Controller
      * @param  \App\Historialuser  $historialuser
      * @return \Illuminate\Http\Response
      */
-    public function show(Historialuser $historialuser)
+    public function show($id)
     {
-        //
+        $historialuser = Historialuser::find($id);
+        return $historialuser;
     }
 
     /**
@@ -64,7 +65,7 @@ class HistorialuserController extends Controller
      * @param  \App\Historialuser  $historialuser
      * @return \Illuminate\Http\Response
      */
-    public function edit(Historialuser $historialuser)
+    public function edit($id)
     {
         //
     }
@@ -76,9 +77,16 @@ class HistorialuserController extends Controller
      * @param  \App\Historialuser  $historialuser
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Historialuser $historialuser)
+    public function update(Request $request, $id)
     {
-        //
+        $historialuser = Historialuser::find($id);
+        $historialuser->descripcion= $request->descripcion;
+        $historialuser->fechaHistorial= $request->fechaHistorial;
+        $historialuser->horaHistorial= $request->horaHistorial;
+       
+        $historialuser->save();
+
+        return $historialuser;
     }
 
     /**
@@ -87,8 +95,11 @@ class HistorialuserController extends Controller
      * @param  \App\Historialuser  $historialuser
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Historialuser $historialuser)
+    public function destroy($id)
     {
-        //
+        $historialuser = Historialuser::find($id);
+        $historialuser->delete();
+
+        return Historialuser:: all();
     }
 }

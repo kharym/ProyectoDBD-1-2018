@@ -57,9 +57,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        return $user;
     }
 
     /**
@@ -68,7 +69,7 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
     }
@@ -80,9 +81,20 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->historialuser_id= $request->historialuser_id;
+        $user->name= $request->name;
+        $user->email= $request->email;
+        $user->password= $request->password;
+        $user->dni_Pasaporte= $request->dni_Pasaporte;
+        $user->fondos= $request->fondos;
+        $user->rol= $request->rol;
+       
+        $user->save();
+
+        return $user;
     }
 
     /**
@@ -91,8 +103,11 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return User:: all();
     }
 }

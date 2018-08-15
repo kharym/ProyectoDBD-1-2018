@@ -62,9 +62,10 @@ class VueloController extends Controller
      * @param  \App\Vuelo  $vuelo
      * @return \Illuminate\Http\Response
      */
-    public function show(Vuelo $vuelo)
+    public function show($id)
     {
-        //
+        $vuelo = Vuelo::find($id);
+        return $vuelo;
     }
 
     /**
@@ -73,7 +74,7 @@ class VueloController extends Controller
      * @param  \App\Vuelo  $vuelo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vuelo $vuelo)
+    public function edit($id)
     {
         //
     }
@@ -85,9 +86,25 @@ class VueloController extends Controller
      * @param  \App\Vuelo  $vuelo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vuelo $vuelo)
+    public function update(Request $request, $id)
     {
-        //
+         $vuelo = Vuelo::find($id);
+        $vuelo->compra_id= $request->compra_id;
+        $vuelo->aerolinea_id= $request->aerolinea_id;
+        $vuelo->aeropuertoOrigen_id= $request->aeropuertoOrigen_id;
+        $vuelo->aeropuertoDestino_id= $request->aeropuertoDestino_id;
+        $vuelo->tipoVuelo= $request->tipoVuelo;
+        $vuelo->precioVuelo= $request->precioVuelo;
+        $vuelo->numeroEscala= $request->numeroEscala;
+        $vuelo->cantidadEquipaje= $request->cantidadEquipaje;
+        $vuelo->fechaPartida= $request->fechaPartida;
+        $vuelo->horaPartida= $request->horaPartida;
+        $vuelo->fechaRegreso= $request->fechaRegreso;
+        $vuelo->horaRegreso= $request->horaRegreso;
+       
+        $vuelo->save();
+
+        return $vuelo;
     }
 
     /**
@@ -96,8 +113,11 @@ class VueloController extends Controller
      * @param  \App\Vuelo  $vuelo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vuelo $vuelo)
+    public function destroy($id)
     {
-        //
+        $vuelo = Vuelo::find($id);
+        $vuelo->delete();
+
+        return Vuelo:: all();
     }
 }

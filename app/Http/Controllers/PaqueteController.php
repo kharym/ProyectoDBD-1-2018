@@ -54,9 +54,10 @@ class PaqueteController extends Controller
      * @param  \App\Paquete  $paquete
      * @return \Illuminate\Http\Response
      */
-    public function show(Paquete $paquete)
+    public function show($id)
     {
-        //
+        $paquete = Paquete::find($id);
+        return $paquete;
     }
 
     /**
@@ -65,9 +66,9 @@ class PaqueteController extends Controller
      * @param  \App\Paquete  $paquete
      * @return \Illuminate\Http\Response
      */
-    public function edit(Paquete $paquete)
+    public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -77,9 +78,17 @@ class PaqueteController extends Controller
      * @param  \App\Paquete  $paquete
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paquete $paquete)
+    public function update(Request $request, $id)
     {
-        //
+        $paquete = Paquete::find($id);
+        $paquete->precioDescuento= $request->precioDescuento;
+        $paquete->tipoPaquete= $request->tipoPaquete;
+        $paquete->precioNormal= $request->precioNormal;
+        $paquete->descripcion= $request->descripcion;
+       
+        $paquete->save();
+
+        return $paquete;
     }
 
     /**
@@ -88,8 +97,11 @@ class PaqueteController extends Controller
      * @param  \App\Paquete  $paquete
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paquete $paquete)
+    public function destroy($id)
     {
-        //
+        $paquete = Paquete::find($id);
+        $paquete->delete();
+
+        return Paquete:: all();
     }
 }

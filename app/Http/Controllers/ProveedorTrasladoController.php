@@ -53,9 +53,10 @@ class ProveedorTrasladoController extends Controller
      * @param  \App\ProveedorTraslado  $proveedorTraslado
      * @return \Illuminate\Http\Response
      */
-    public function show(ProveedorTraslado $proveedorTraslado)
+    public function show($id)
     {
-        //
+        $proveedorTraslado = ProveedorTraslado::find($id);
+        return $proveedorTraslado;
     }
 
     /**
@@ -64,7 +65,7 @@ class ProveedorTrasladoController extends Controller
      * @param  \App\ProveedorTraslado  $proveedorTraslado
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProveedorTraslado $proveedorTraslado)
+    public function edit($id)
     {
         //
     }
@@ -76,9 +77,16 @@ class ProveedorTrasladoController extends Controller
      * @param  \App\ProveedorTraslado  $proveedorTraslado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProveedorTraslado $proveedorTraslado)
+    public function update(Request $request, $id)
     {
-        //
+        $proveedorTraslado = ProveedorTraslado::find($id);
+        $proveedorTraslado->nombreProveedorTraslado= $request->nombreProveedorTraslado;
+        $proveedorTraslado->telefono= $request->telefono;
+        $proveedorTraslado->correo= $request->correo;
+       
+        $proveedorTraslado->save();
+
+        return $proveedorTraslado;
     }
 
     /**
@@ -87,8 +95,11 @@ class ProveedorTrasladoController extends Controller
      * @param  \App\ProveedorTraslado  $proveedorTraslado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProveedorTraslado $proveedorTraslado)
+    public function destroy($id)
     {
-        //
+        $proveedorTraslado = ProveedorTraslado::find($id);
+        $proveedorTraslado->delete();
+
+        return ProveedorTraslado:: all();
     }
 }

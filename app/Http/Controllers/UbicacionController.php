@@ -57,9 +57,10 @@ class UbicacionController extends Controller
      * @param  \App\Ubicacione  $ubicacione
      * @return \Illuminate\Http\Response
      */
-    public function show(Ubicacione $ubicacione)
+    public function show($id)
     {
-        //
+        $ubicacion = Ubicacione::find($id);
+        return $ubicacion;
     }
 
     /**
@@ -68,7 +69,7 @@ class UbicacionController extends Controller
      * @param  \App\Ubicacione  $ubicacione
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ubicacione $ubicacione)
+    public function edit($id)
     {
         //
     }
@@ -80,9 +81,20 @@ class UbicacionController extends Controller
      * @param  \App\Ubicacione  $ubicacione
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ubicacione $ubicacione)
+    public function update(Request $request, $id)
     {
-        //
+        $ubicacion = Ubicacione::find($id);
+        $ubicacion->latitud= $request->latitud;
+        $ubicacion->longitud= $request->longitud;
+        $ubicacion->ciudad= $request->ciudad;
+        $ubicacion->pais= $request->pais;
+        $ubicacion->calleUbicacion= $request->calleUbicacion;
+        $ubicacion->numeroUbicacion= $request->numeroUbicacion;
+        $ubicacion->codigoPostal= $request->codigoPostal;
+       
+        $ubicacion->save();
+
+        return $ubicacion;
     }
 
     /**
@@ -91,8 +103,11 @@ class UbicacionController extends Controller
      * @param  \App\Ubicacione  $ubicacione
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ubicacione $ubicacione)
+    public function destroy($id)
     {
-        //
+        $ubicacion = Ubicacione::find($id);
+        $ubicacion->delete();
+
+        return Ubicacione:: all();
     }
 }

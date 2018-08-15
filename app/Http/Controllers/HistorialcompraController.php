@@ -57,9 +57,10 @@ class HistorialcompraController extends Controller
      * @param  \App\Historialcompra  $historialcompra
      * @return \Illuminate\Http\Response
      */
-    public function show(Historialcompra $historialcompra)
+    public function show($id)
     {
-        //
+        $historialcompra = Historialcompra::find($id);
+        return $historialcompra;
     }
 
     /**
@@ -68,7 +69,7 @@ class HistorialcompraController extends Controller
      * @param  \App\Historialcompra  $historialcompra
      * @return \Illuminate\Http\Response
      */
-    public function edit(Historialcompra $historialcompra)
+    public function edit($id)
     {
         //
     }
@@ -80,9 +81,20 @@ class HistorialcompraController extends Controller
      * @param  \App\Historialcompra  $historialcompra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Historialcompra $historialcompra)
+    public function update(Request $request, $id)
     {
-        //
+        $historialcompra = Historialcompra::find($id);
+        $historialcompra->compra_id= $request->compra_id;
+        $historialcompra->fechaCompra= $request->fechaCompra;
+        $historialcompra->horaCompra= $request->horaCompra;
+        $historialcompra->tipoCompra= $request->tipoCompra;
+        $historialcompra->metodoDePago= $request->metodoDePago;
+        $historialcompra->monto= $request->monto;
+        $historialcompra->descripcion= $request->descripcion;
+       
+        $historialcompra->save();
+
+        return $historialcompra;
     }
 
     /**
@@ -91,8 +103,11 @@ class HistorialcompraController extends Controller
      * @param  \App\Historialcompra  $historialcompra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Historialcompra $historialcompra)
+    public function destroy($id)
     {
-        //
+        $historialcompra = Historialcompra::find($id);
+        $historialcompra->delete();
+
+        return Historialcompra:: all();
     }
 }

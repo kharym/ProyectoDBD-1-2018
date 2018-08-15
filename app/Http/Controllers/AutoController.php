@@ -60,9 +60,10 @@ class AutoController extends Controller
      * @param  \App\Auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function show(Auto $auto)
+    public function show($id)
     {
-        //
+        $auto = Auto::find($id);
+        return $auto;
     }
 
     /**
@@ -71,7 +72,7 @@ class AutoController extends Controller
      * @param  \App\Auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Auto $auto)
+    public function edit($id)
     {
         //
     }
@@ -83,9 +84,23 @@ class AutoController extends Controller
      * @param  \App\Auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Auto $auto)
+    public function update(Request $request,$id)
     {
-        //
+        $auto = Auto::find($id);
+        $auto->compra_id= $request->compra_id;
+        $auto->proveedor_auto_id= $request->proveedor_auto_id;
+        $auto->patente= $request->patente;
+        $auto->precio= $request->precio;
+        $auto->marca= $request->marca;
+        $auto->modelo= $request->modelo;
+        $auto->fechaArriendo= $request->fechaArriendo;
+        $auto->horaArriendo= $request->horaArriendo;
+        $auto->fechaDevolucion= $request->fechaDevolucion;
+        $auto->horaDevolucion= $request->horaDevolucion;
+       
+        $auto->save();
+
+        return $auto;
     }
 
     /**
@@ -94,8 +109,11 @@ class AutoController extends Controller
      * @param  \App\Auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Auto $auto)
+    public function destroy($id)
     {
-        //
+        $auto = Auto::find($id);
+        $auto->delete();
+
+        return Auto:: all();
     }
 }

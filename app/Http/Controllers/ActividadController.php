@@ -59,7 +59,7 @@ class ActividadController extends Controller
      * @param  \App\Actividad  $actividad
      * @return \Illuminate\Http\Response
      */
-    public function show(Actividad $actividad)
+    public function show($id)
     {
         $actividad = Actividad::find($id);
         return $actividad;
@@ -71,7 +71,7 @@ class ActividadController extends Controller
      * @param  \App\Actividad  $actividad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Actividad $actividad)
+    public function edit($id)
     {
         //
     }
@@ -83,7 +83,7 @@ class ActividadController extends Controller
      * @param  \App\Actividad  $actividad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Actividad $actividad)
+    public function update(Request $request, $id)
     {
         $actividad = Actividad::find($id);
         $actividad->compra_id= $request->compra_id;
@@ -107,7 +107,7 @@ class ActividadController extends Controller
      * @param  \App\Actividad  $actividad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Actividad $actividad)
+    public function destroy($id)
     {
         $actividad = Actividad::find($id);
         $actividad->delete();

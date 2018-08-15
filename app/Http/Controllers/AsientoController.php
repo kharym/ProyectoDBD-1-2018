@@ -54,9 +54,10 @@ class AsientoController extends Controller
      * @param  \App\Asiento  $asiento
      * @return \Illuminate\Http\Response
      */
-    public function show(Asiento $asiento)
+    public function show($id)
     {
-        //
+        $asiento = Asiento::find($id);
+        return $asiento;
     }
 
     /**
@@ -65,7 +66,7 @@ class AsientoController extends Controller
      * @param  \App\Asiento  $asiento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asiento $asiento)
+    public function edit($id)
     {
         //
     }
@@ -77,9 +78,17 @@ class AsientoController extends Controller
      * @param  \App\Asiento  $asiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asiento $asiento)
+    public function update(Request $request,$id)
     {
-        //
+        $asiento = Asiento::find($id);
+        $asiento->vuelo_id= $request->vuelo_id;
+        $asiento->disponibilidad= $request->disponibilidad;
+        $asiento->numeroAsiento= $request->numeroAsiento;
+        $asiento->tipoAsiento= $request->tipoAsiento;
+       
+        $asiento->save();
+
+        return $asiento;
     }
 
     /**
@@ -88,8 +97,11 @@ class AsientoController extends Controller
      * @param  \App\Asiento  $asiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asiento $asiento)
+    public function destroy($id)
     {
-        //
+        $asiento = Asiento::find($id);
+        $asiento->delete();
+
+        return Asiento:: all();
     }
 }

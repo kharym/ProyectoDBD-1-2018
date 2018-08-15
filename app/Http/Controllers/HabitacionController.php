@@ -61,9 +61,10 @@ class HabitacionController extends Controller
      * @param  \App\Habitacione  $habitacione
      * @return \Illuminate\Http\Response
      */
-    public function show(Habitacione $habitacione)
+    public function show($id)
     {
-        //
+        $habitacion = Habitacione::find($id);
+        return $habitacion;
     }
 
     /**
@@ -72,7 +73,7 @@ class HabitacionController extends Controller
      * @param  \App\Habitacione  $habitacione
      * @return \Illuminate\Http\Response
      */
-    public function edit(Habitacione $habitacione)
+    public function edit($id)
     {
         //
     }
@@ -84,9 +85,24 @@ class HabitacionController extends Controller
      * @param  \App\Habitacione  $habitacione
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Habitacione $habitacione)
+    public function update(Request $request, $id)
     {
-        //
+        $habitacion = Habitacione::find($id);
+        $habitacion->compra_id= $request->compra_id;
+        $habitacion->alojamiento_id= $request->alojamiento_id;
+        $habitacion->precioHabitacion= $request->precioHabitacion;
+        $habitacion->calificacion= $request->calificacion;
+        $habitacion->numeroAdultos= $request->numeroAdultos;
+        $habitacion->numeroNinos= $request->numeroNinos;
+        $habitacion->tipoHabitacion= $request->tipoHabitacion;
+        $habitacion->fechaIngreso= $request->fechaIngreso;
+        $habitacion->horaIngreso= $request->horaIngreso;
+        $habitacion->fechaSalida= $request->fechaSalida;
+        $habitacion->horaSalida= $request->horaSalida;
+       
+        $habitacion->save();
+
+        return $habitacion;
     }
 
     /**
@@ -95,8 +111,11 @@ class HabitacionController extends Controller
      * @param  \App\Habitacione  $habitacione
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Habitacione $habitacione)
+    public function destroy($id)
     {
-        //
+        $habitacion = Habitacione::find($id);
+        $habitacion->delete();
+
+        return Habitacione:: all();
     }
 }
