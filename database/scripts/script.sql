@@ -79,6 +79,17 @@ CREATE TABLE historialusers(
 
 /*--------------------------------------------------------*/
 
+/* Tabla rols */
+
+CREATE TABLE rols(
+	id int NOT NULL AUTO INCREMENT,
+	nombreRol varchar(10) NOT NULL,
+	descripcion varchar(150) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+/*--------------------------------------------------------*/
+
 /* Tabla users */
 
 CREATE TABLE users(

@@ -37,4 +37,10 @@ class User extends Authenticatable
     public function historialuser(){
         return $this->belongsTo(Historialuser::class,'historialuser_id');
     }
+
+    //relacion 1-n con rols... users tiene la llave de rols en el MER
+    public function rol(){
+        return $this->belongsTo(Rol::class,'rol_id');
+    }
+
 }
