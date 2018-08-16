@@ -269,6 +269,47 @@ CREATE TABLE asientos(
 	PRIMARY KEY (id)
 );
 
+
+/*--------------------------------------------------------*/
+/*INSERTS*/
+
+INSERT INTO proveedorAutos VALUES ('susBuenosAutos','+56266677769', 'susBuenosAutos@yahoo.com');
+INSERT INTO proveedorAutos VALUES ('autosChallas',  '+56512457356', 'autosChallas@yahoo.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO paquetes VALUES (10000,  2, 20000,'Paquete de tipo vuelos');
+INSERT INTO paquetes VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+
 /*--------------------------------------------------------*/
 
 /*------DEFINICION DE LLAVES FORANEAS---------------*/
