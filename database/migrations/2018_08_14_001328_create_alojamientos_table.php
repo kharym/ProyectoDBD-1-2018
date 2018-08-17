@@ -16,7 +16,7 @@ class CreateAlojamientosTable extends Migration
         Schema::create('alojamientos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('ubicacion_id');
-            $table->string('nombreAlojamiento',20);
+            $table->string('nombreAlojamiento',50);
             $table->integer('calificacion');
             $table->timestamps();
 
