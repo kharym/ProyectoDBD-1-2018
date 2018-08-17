@@ -282,32 +282,50 @@ INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'tra
 INSERT INTO paquetes VALUES (10000,  2, 20000,'Paquete de tipo vuelo+ alojamiento. Descuento del 50% al comprar el pack');
 INSERT INTO paquetes VALUES (15000,  1, 20000,'Paquete de tipo vuelo+ auto. Descuento del 25% al comprar el pack');
 
-INSERT INTO aerolineas VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO aerolineas VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO aerolineas VALUES ('susBuenosViajes',  2, 4);
+INSERT INTO aerolineas VALUES ('viajesChallas',  1 , 2);
 
-INSERT INTO ubicaciones VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO ubicaciones VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO ubicaciones VALUES ('123416749,12345',  '123413569,13245', 'Santiago', 'Chile', 'calle falsa', 123, 17910);
+INSERT INTO ubicaciones VALUES ('468416749,57845',  '314513569,13135', 'Cordova', 'Argentina', 'calle verdadera', 323, 27140);
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO historialusers VALUES ('Usuario ingresa a su cuenta',  DATE'19/01/2017', CAST ('12:05:06.0000000' AS TIME));
+INSERT INTO historialusers VALUES ('Usuario accede a sus reservas',  DATE'11/09/2016', CAST ('22:24:26.0000000' AS TIME));
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO rols VALUES ('administrador',  'Usuario con permisos maximos, capaz de realizar la mayoria de las acciones');
+INSERT INTO rols VALUES ('comprador',  'Usuario con capaz de realizar compras y reservas de los distintos productos');
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO users VALUES (2,  2, 'jorjito','jorjito@gmail.cl', 'sadfw"#$%&', 21314, 20000);
+INSERT INTO users VALUES (3,  1, 'peluca','elPeluca@gmail.cl', 's#$%&/G"#$%&', 46514, 30000);
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO compras VALUES (2,  'compra de vuelo', 20000, DATE'26/11/2012', CAST ('20:05:06.0000000' AS TIME));
+INSERT INTO compras VALUES (4,  'compra de reserva habitacion', 10000, DATE'09/09/2017', CAST ('06:12:13.0000000' AS TIME));
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO autos VALUES (2,3,'PS2476', 20000, 'Nissan', 'Versa', DATE'26/01/2012', CAST ('20:05:06.0000000' AS TIME),DATE'28/11/2012', CAST ('20:05:06.0000000') AS TIME));
+INSERT INTO autos VALUES (3,2,'SK2676', 18000, 'Chevrolet', 'Spark', DATE'26/01/2012', CAST ('20:05:06.0000000' AS TIME),DATE'28/11/2012', CAST ('20:05:06.0000000' AS TIME));
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO actividads VALUES (1,'tour zologico', 12000, '+Tour a traves del zoologico de santiago',2 , 4,DATE'26/01/2012', CAST ('20:05:06.0000000' AS TIME),DATE'28/12/2012', CAST ('20:05:06.0000000' AS TIME));
+INSERT INTO actividads VALUES (1,'tour zologico', 12000, '+Tour a traves del zoologico de santiago',2 , 4,DATE'10/12/2012', CAST ('22:05:06.0000000' AS TIME),DATE'14/12/2012', CAST ('22:05:06.0000000' AS TIME));
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO historialCompras VALUES (2,DATE'19/01/2017', CAST ('12:05:06.0000000' AS TIME), 2, 1, 19890, 'Compra de un pasaje de vuelo');
+INSERT INTO historialCompras VALUES (3,DATE'23/02/2017', CAST ('12:05:06.0000000' AS TIME), 1, 2, 23480, 'Compra de una habitacion de hotel');
+
+INSERT INTO alojamientos VALUES (2,  'suBuenHotel', 4);
+INSERT INTO alojamientos VALUES (3,  'Hotel de lujo', 5);
+
+INSERT INTO habitaciones VALUES (4, 3, 19990, 3, 2, 1, 2, DATE'24/05/2017', CAST ('09:05:55.0000000' AS TIME), DATE '27/05/2017', CAST ('09:05:55.0000000' AS TIME));
+INSERT INTO habitaciones VALUES (3, 2, 29990, 4, 3, 2, 1, DATE'01/05/2017', CAST ('19:05:55.0000000' AS TIME), DATE '12/07/2017', CAST ('19:05:55.0000000' AS TIME));
+
+INSERT INTO traslados VALUES (2,3, 5, 12990, 'detenciones: paradero 4, 6,7, 9', 4, 7,DATE'23/02/2017', CAST ('12:05:06.0000000' AS TIME));
+INSERT INTO traslados VALUES (3,2, 4, 14990, 'detenciones: paradero 2,7, 9', 4, 7,DATE'27/02/2017', CAST ('14:05:06.0000000' AS TIME));
+
+INSERT INTO aeropuertos VALUES (2,  'Arturo Benites', 2,3);
+INSERT INTO aeropuertos VALUES (4,  'Jose Tomallo', 1,2);
+
+INSERT INTO vuelos VALUES (1, 2, 2,3, 2,34990, 2, 3, DATE'10/08/2017', CAST ('11:05:55.0000000' AS TIME), DATE '21/08/2017', CAST ('11:05:55.0000000' AS TIME));
+INSERT INTO vuelos VALUES (1, 2, 2,3, 2,34990, 2, 3, DATE'10/11/2017', CAST ('12:06:55.0000000' AS TIME), DATE '15/11/2017', CAST ('12:06:55.0000000' AS TIME));
+
+INSERT INTO asientos VALUES (2, true, 24, 2);
+INSERT INTO asientos VALUES (4, false, 72, 1);
 
 
 /*--------------------------------------------------------*/
