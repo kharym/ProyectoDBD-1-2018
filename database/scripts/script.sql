@@ -279,14 +279,14 @@ INSERT INTO proveedorAutos VALUES ('autosChallas',  '+56512457356', 'autosChalla
 INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
 INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
 
-INSERT INTO paquetes VALUES (10000,  2, 20000,'Paquete de tipo vuelos');
-INSERT INTO paquetes VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO paquetes VALUES (10000,  2, 20000,'Paquete de tipo vuelo+ alojamiento. Descuento del 50% al comprar el pack');
+INSERT INTO paquetes VALUES (15000,  1, 20000,'Paquete de tipo vuelo+ auto. Descuento del 25% al comprar el pack');
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO aerolineas VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO aerolineas VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
 
-INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
-INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+INSERT INTO ubicaciones VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO ubicaciones VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
 
 INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
 INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
