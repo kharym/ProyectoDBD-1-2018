@@ -95,12 +95,12 @@ CREATE TABLE rols(
 CREATE TABLE users(
 	id int NOT NULL AUTO INCREMENT,
 	historialuser_id int NOT NULL,
+	rols_id int NOT NULL,
 	name varchar(30) NOT NULL,
 	email varchar(50) NOT NULL,
 	password varchar(10) NOT NULL,
 	dni_Pasaporte int NOT NULL,
 	fondos int NOT NULL,
-	rol int NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -211,8 +211,8 @@ CREATE TABLE habitaciones(
 CREATE TABLE traslados(
 	id int NOT NULL AUTO INCREMENT,
 	compra_id int NOT NULL,
-	ubicacion_id int NOT NULL,
 	preoveedor_traslado_id int NOT NULL,
+	ubicacion_id int NOT NULL,
 	precioTraslado int NOT NULL,
 	planificacionParadas varchar(200) NOT NULL,
 	numeroParadas int NOT NULL,
@@ -228,7 +228,7 @@ CREATE TABLE traslados(
 
 CREATE TABLE aeropuertos(
 	id int NOT NULL AUTO INCREMENT,
-	ubicacione_id int NOT NULL,
+	ubicacion_id int NOT NULL,
 	nombreAeropuerto varchar(50) NOT NULL,
 	tipoAeropuerto int NOT NULL,
 	calificacion int,
@@ -258,7 +258,7 @@ CREATE TABLE vuelos(
 
 /*--------------------------------------------------------*/
 
-/* Tabla asientos */
+/* Tabla asientos TIENE FORANEA   */
 
 CREATE TABLE asientos(
 	id int NOT NULL AUTO INCREMENT,
@@ -268,5 +268,101 @@ CREATE TABLE asientos(
 	tipoAsiento int NOT NULL,
 	PRIMARY KEY (id)
 );
+
+
+/*--------------------------------------------------------*/
+/*INSERTS*/
+
+INSERT INTO proveedorAutos VALUES ('susBuenosAutos','+56266677769', 'susBuenosAutos@yahoo.com');
+INSERT INTO proveedorAutos VALUES ('autosChallas',  '+56512457356', 'autosChallas@yahoo.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO paquetes VALUES (10000,  2, 20000,'Paquete de tipo vuelos');
+INSERT INTO paquetes VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+INSERT INTO proveedorTraslados VALUES ('susBuenosTraslados',  '+56236635769', 'susBuenosTraslados@yahoo.com');
+INSERT INTO proveedorTraslados VALUES ('trasladosChallas',  '+56564579021', 'trasladosChallas@gmail.com');
+
+
+/*--------------------------------------------------------*/
+
+/*------DEFINICION DE LLAVES FORANEAS---------------*/
+
+ALTER TABLE users
+	ADD FOREIGN KEY (historialuser_id) REFERENCES historialusers(id);
+	ADD FOREIGN KEY (rols_id) REFERENCES historialusers(id);
+
+
+ALTER TABLE compras
+	ADD FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+ALTER TABLE autos
+	ADD FOREIGN KEY (compra_id) REFERENCES compras(id);
+	ADD FOREIGN KEY (proveedor_auto_id) REFERENCES proveedorAutos(id);
+
+
+ALTER TABLE actividads
+	ADD FOREIGN KEY (compra_id) REFERENCES compras(id);
+
+
+ALTER TABLE historialCompras
+	ADD FOREIGN KEY (compra_id) REFERENCES compras(id);
+
+
+ALTER TABLE alojamientos
+	ADD FOREIGN KEY (ubicacion_id) REFERENCES ubicaciones(id);
+
+
+ALTER TABLE habitaciones
+	ADD FOREIGN KEY (compra_id) REFERENCES compras(id);
+	ADD FOREIGN KEY (alojamiento_id) REFERENCES alojamientos(id);
+
+
+ALTER TABLE traslados
+	ADD FOREIGN KEY (compra_id) REFERENCES compras(id);
+	ADD FOREIGN KEY (proveedor_traslado_id) REFERENCES proveedorTraslados(id);
+	ADD FOREIGN KEY (ubicacion_id) REFERENCES ubicaciones(id);
+
+
+ALTER TABLE aeropuertos
+	ADD FOREIGN KEY (ubicacion_id) REFERENCES ubicaciones(id);
+
+
+ALTER TABLE vuelos
+	ADD FOREIGN KEY (compra_id) REFERENCES compras(id);
+	ADD FOREIGN KEY (aerolinea_id) REFERENCES aerolineas(id);
+	ADD FOREIGN KEY (aeropuertoOrigen_id) REFERENCES aeropuertos(id);
+	ADD FOREIGN KEY (aeropuertoDestino_id) REFERENCES aeropuertos(id);
+
+
+ALTER TABLE asientos
+	ADD FOREIGN KEY (vuelo_id) REFERENCES vuelos(id);
 
 /*--------------------------------------------------------*/
