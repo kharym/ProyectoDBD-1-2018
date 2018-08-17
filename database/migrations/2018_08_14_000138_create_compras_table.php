@@ -16,7 +16,7 @@ class CreateComprasTable extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('descripcion',150);
+            $table->text('descripcion',150);
             $table->integer('monto');
             $table->date('fechaCompra');
             $table->time('horaCompra');

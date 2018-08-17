@@ -18,7 +18,7 @@ class CreatePaquetesTable extends Migration
             $table->integer('precioDescuento');
             $table->integer('tipoPaquete');
             $table->integer('precioNormal');
-            $table->string('descripcion',150);
+            $table->text('descripcion');
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ class CreateHistorialcomprasTable extends Migration
             $table->integer('tipoCompra');
             $table->integer('metodoDePago');
             $table->integer('monto');
-            $table->string('descripcion',200);
+            $table->text('descripcion',200);
             $table->timestamps();
 
             $table->foreign('compra_id')->references('id')->on('compras')->onDelete('cascade');

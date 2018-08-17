@@ -15,7 +15,7 @@ class CreateHistorialusersTable extends Migration
     {
         Schema::create('historialusers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion',150);
+            $table->text('descripcion');
             $table->date('fechaHistorial');
             $table->time('horaHistorial');
             $table->timestamps();

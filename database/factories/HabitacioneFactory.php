@@ -12,8 +12,8 @@ $factory->define(App\Habitacione::class, function (Faker $faker) {
 	  	'numeroNinos' => $faker->numberBetween($min = 0, $max = 3),
 	  	'tipoHabitacion' => $faker->numberBetween($min = 1, $max = 3),
 	  	'fechaIngreso'=> $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
-	  	'horaIngreso'=> '10:00',
+	  	'horaIngreso'=> $faker->time(),
 	  	'fechaSalida'=> $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years'),
-	  	'horaSalida'=> '18:00',
+	  	'horaSalida'=> $faker->time(),
     ];
 });

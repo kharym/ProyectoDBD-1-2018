@@ -13,8 +13,8 @@ $factory->define(App\Vuelo::class, function (Faker $faker) {
         'numeroEscala'=> $faker->numberBetween($min = 0, $max = 3),
         'cantidadEquipaje'=> $faker->numberBetween($min = 1, $max = 3),
 	  	'fechaPartida'=> $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
-	  	'horaPartida'=> '10:00',
+	  	'horaPartida'=> $faker->time(),
 	  	'fechaRegreso'=> $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years'),
-	  	'horaRegreso'=> '18:00',
+	  	'horaRegreso'=> $faker->time(),
     ];
 });

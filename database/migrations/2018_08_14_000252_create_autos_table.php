@@ -17,10 +17,10 @@ class CreateAutosTable extends Migration
             $table->increments('id');
             $table->integer('compra_id')->unsigned();
             $table->integer('proveedor_auto_id')->unsigned();
-            $table->string('patente',10)->unique();
+            $table->string('patente', 8);
             $table->integer('precio');
-            $table->string('marca',15);
-            $table->string('modelo',20);
+            $table->text('marca');
+            $table->text('modelo');
             $table->date('fechaArriendo');
             $table->time('horaArriendo');
             $table->date('fechaDevolucion');

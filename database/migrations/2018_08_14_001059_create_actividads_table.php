@@ -18,7 +18,7 @@ class CreateActividadsTable extends Migration
             $table->integer('compra_id')->unsigned()->nullable();
             $table->string('nombreActividad',50);
             $table->integer('precioActividad');
-            $table->string('descripcion',250);
+            $table->text('descripcion');
             $table->integer('numeroNinos');
             $table->integer('numeroAdultos');
             $table->date('fechaInicio');

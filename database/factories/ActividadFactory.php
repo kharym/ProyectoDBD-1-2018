@@ -8,13 +8,13 @@ $factory->define(App\Actividad::class, function (Faker $faker) {
 	    'compra_id' => rand(1,10),
 	  	'nombreActividad' => $faker->name,
 	  	'precioActividad'=> $faker->numberBetween($min = 10000, $max = 1000000),
-	  	'descripcion' => str_random(250),
+	  	'descripcion' => $faker->text,
 	  	'numeroNinos' => $faker->numberBetween($min = 0, $max = 100),
 	  	'numeroAdultos'=> $faker->numberBetween($min = 0, $max = 100),
 	  	'fechaInicio'=> $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
-	  	'horaInicio'=> '10:00',
+	  	'horaInicio'=> $faker->time(),
 	  	'fechaTermino'=> $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years'),
-	  	'horaTermino'=> '18:00',
+	  	'horaTermino'=> $faker->time(),
 	
     ];
 });

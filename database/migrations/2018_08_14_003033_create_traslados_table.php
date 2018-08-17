@@ -19,7 +19,7 @@ class CreateTrasladosTable extends Migration
             $table->integer('proveedor_traslado_id')->unsigned();
             $table->integer('ubicacion_id');
             $table->integer('precioTraslado');
-            $table->string('planificacionParadas',200);
+            $table->text('planificacionParadas');
             $table->integer('numeroParadas');
             $table->integer('totalPasajeros');
             $table->date('fechaTraslado');
