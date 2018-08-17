@@ -16,8 +16,8 @@ class CreateProveedorTrasladosTable extends Migration
         Schema::create('proveedor_traslados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombreProveedorTraslado',50);
-            $table->string('telefono',15);
-            $table->string('correo',30);
+            $table->string('telefono',50);
+            $table->string('correo',50);
             $table->timestamps();
         });
     }
